@@ -2,10 +2,12 @@ const dotenv = require("dotenv");
 const express = require("express");
 const { createServer } = require("http");
 const { Server } = require("socket.io");
-const roomHandler = require("./roomHandler");
+const roomHandler = require("./roomHandler"); 
+const cors = require("cors")
 
 dotenv.config();
 const app = express();
+app.use(cors());
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
